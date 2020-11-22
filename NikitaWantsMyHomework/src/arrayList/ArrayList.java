@@ -68,7 +68,7 @@ public class ArrayList<T> implements MyArrayList<T> {
      */
     private void checkIndex(int index){
         if(index < 0 || index > lastPutIndex)
-            throw new IllegalArgumentException();
+            throw new IndexOutOfBoundsException();
     }
 
     /**
@@ -77,7 +77,7 @@ public class ArrayList<T> implements MyArrayList<T> {
     private void resize(){
         // Нет ошибки, т.к массив никогда не будет возвращен пользователю.
         @SuppressWarnings("unchecked")
-        T[] temp = (T[])new Object[DEFAULT_CAPACITY * 2];
+        T[] temp = (T[])new Object[array.length * 2];
 
         System.arraycopy(array, 0, temp, 0, array.length);
 
